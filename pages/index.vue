@@ -2,23 +2,23 @@
   <section>
     <h1 class="header">Nuxt TypeScript Starter</h1>
     <div class="cards">
-      <Card v-for="person in people" :key="person.id" :person="person"></Card>
+      <Card
+        v-for="person in people"
+        :key="person.id"
+        :person="person"/>
     </div>
   </section>
 </template>
 
 <script lang="ts">
-import {
-  Component,
-  Vue
-} from "nuxt-property-decorator"
-import { State } from "vuex-class"
-import Card from "~/components/Card.vue"
+import { Component, Vue } from 'nuxt-property-decorator'
+import { State } from 'vuex-class'
+import Card from '~/components/Card.vue'
 
 @Component({
   components: {
-    Card
-  }
+    Card,
+  },
 })
 export default class extends Vue {
   @State people
@@ -26,8 +26,7 @@ export default class extends Vue {
 </script>
 <style scoped>
 .header {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana,
-    sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .cards {
