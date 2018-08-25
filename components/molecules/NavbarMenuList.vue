@@ -1,6 +1,6 @@
 <template lang="pug">
   ul.navbar-nav.ml-auto
-    TheNavItem(
+    NavbarMenuItem(
       v-for="item in items",
       :key="item.name",
       :name="item.name",
@@ -9,13 +9,13 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
-import TheNavItem from '~/components/atoms/TheNavItem.vue'
+import NavbarMenuItem from '~/components/atoms/NavbarMenuItem.vue'
 @Component({
   components: {
-    TheNavItem: TheNavItem,
+    NavbarMenuItem,
   },
 })
-export default class TheHeaderLogo extends Vue {
+export default class NavbarMenuList extends Vue {
   // TODO: item.isActive should depend on 'activeItem'
   items: Array<Object> = [
     {

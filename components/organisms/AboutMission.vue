@@ -6,18 +6,18 @@
       | 若者と地域の課題をつなげる立場であり、そのためのツールとしてITを活用しています。
       | また、自らが若者を中心とした発展途上のコミュニティであり、
       | 地域課題に挑戦する若者をサポートすることで私たち自身も成長していきます。
-    AboutMissions(:missions="missions")
+    AboutMissionList(:missions="missions")
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
-import AboutMissions from '~/components/molecules/AboutMissions.vue'
+import AboutMissionList from '~/components/molecules/AboutMissionList.vue'
 @Component({
   components: {
-    AboutMissions,
+    AboutMissionList,
   },
 })
-export default class About extends Vue {
+export default class AboutMission extends Vue {
   missions: Array<Object> = [
     {
       title: 'Seed',

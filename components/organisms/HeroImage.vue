@@ -1,17 +1,17 @@
 <template lang="pug">
   section.hero(:style="heroStyle")
-    HeroContent(:title="title", :text="description")/
+    HeroImageContent(:title="title", :text="description")/
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
-import HeroContent from '~/components/atoms/HeroContent.vue'
+import HeroImageContent from '~/components/atoms/HeroImageContent.vue'
 @Component({
   components: {
-    HeroContent,
+    HeroImageContent,
   },
 })
-export default class TheHero extends Vue {
+export default class HeroImage extends Vue {
   @Prop(String)
   image!: string
   @Prop(String)

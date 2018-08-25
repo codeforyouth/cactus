@@ -1,26 +1,26 @@
 <template lang="pug">
   div
-    Hero(
+    HeroImage(
       :image="heroImage",
       :title="heroTitle",
       :description="heroDescription",
     )/
-    Projects(:projects="projects")/
-    About/
+    ProjectList(:projects="projects")/
+    AboutMission/
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State } from 'vuex-class'
-import Hero from '~/components/organisms/TheHero.vue'
-import Projects from '~/components/organisms/Projects.vue'
-import About from '~/components/organisms/About.vue'
+import HeroImage from '~/components/organisms/HeroImage.vue'
+import ProjectList from '~/components/organisms/ProjectList.vue'
+import AboutMission from '~/components/organisms/AboutMission.vue'
 
 @Component({
   components: {
-    Hero,
-    Projects,
-    About,
+    HeroImage,
+    ProjectList,
+    AboutMission,
   },
 })
 export default class extends Vue {

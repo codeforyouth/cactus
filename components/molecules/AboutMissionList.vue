@@ -2,7 +2,7 @@
   div.about-missions
     h3 MISSION
     ul
-      Mission(
+      AboutMissionItem(
         v-for="mission in missions",
         :key="mission.title",
         :image="mission.image",
@@ -14,13 +14,13 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
-import Mission from '~/components/atoms/Mission.vue'
+import AboutMissionItem from '~/components/atoms/AboutMissionItem.vue'
 @Component({
   components: {
-    Mission,
+    AboutMissionItem,
   },
 })
-export default class AboutMission extends Vue {
+export default class AboutMissionList extends Vue {
   @Prop(Array)
   missions!: Array<object>
 }

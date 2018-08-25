@@ -10,7 +10,7 @@ import { Component, Prop, Vue } from 'nuxt-property-decorator'
 @Component({
   components: {},
 })
-export default class Mission extends Vue {
+export default class AboutMissionItem extends Vue {
   @Prop(String)
   image!: string
   @Prop(String)

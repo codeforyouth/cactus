@@ -6,7 +6,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 @Component({})
-export default class TheHeaderLogo extends Vue {
+export default class NavbarMenuItem extends Vue {
   @Prop(String)
   name!: string
   @Prop(Boolean)

@@ -7,7 +7,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 @Component({})
-export default class HeroContent extends Vue {
+export default class HeroImageContent extends Vue {
   @Prop(String)
   title!: string
   @Prop(String)

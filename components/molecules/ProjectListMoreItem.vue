@@ -7,7 +7,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 @Component({})
-export default class ProjectMore extends Vue {}
+export default class ProjectListMoreItem extends Vue {}
 </script>
 <style scoped>
 </style>

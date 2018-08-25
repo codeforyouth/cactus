@@ -1,7 +1,7 @@
 <template lang="pug">
   section.projects-section
     h2.header2 現在応募可能なプロジェクト一覧
-    ProjectCards(
+    ProjectListItem(
       v-for="project in projects",
       :key="project.title",
       :image="project.image",
@@ -9,20 +9,20 @@
       :auther="project.auther",
       :tags="project.tags",
       :endsOn="project.endsOn")
-    ProjectMore
+    ProjectListMoreItem
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
-import ProjectCards from '~/components/molecules/ProjectCards.vue'
-import ProjectMore from '~/components/molecules/ProjectMore.vue'
+import ProjectListItem from '~/components/molecules/ProjectListItem.vue'
+import ProjectListMoreItem from '~/components/molecules/ProjectListMoreItem.vue'
 @Component({
   components: {
-    ProjectCards,
-    ProjectMore,
+    ProjectListItem,
+    ProjectListMoreItem,
   },
 })
-export default class Procjects extends Vue {
+export default class ProcjectList extends Vue {
   @Prop(Array)
   projects!: Array<object>
 }

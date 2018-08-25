@@ -17,7 +17,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 @Component({})
-export default class ProjectCards extends Vue {
+export default class ProjectListItem extends Vue {
   @Prop(String)
   title!: string
   @Prop(String)
