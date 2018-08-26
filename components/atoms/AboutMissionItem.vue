@@ -1,5 +1,5 @@
 <template lang="pug">
-    li
+    li.about-mission-item.col-lg-4.col-md-6.col-sm-12.mb-4.text-center
       img(:src="image")
       h4 {{title}}
       p {{description}}
@@ -19,5 +19,7 @@ export default class AboutMissionItem extends Vue {
   description!: string
 }
 </script>
-<style scoped>
+<style lang="sass" scoped>
+.about-mission-item
+  list-style-type: none
 </style>

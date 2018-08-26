@@ -1,6 +1,6 @@
 <template lang="pug">
-  section.hero(:style="heroStyle")
-    HeroImageContent(:title="title", :text="description")/
+  section.hero-image.section.d-flex.justify-content-center.flex-column(:style="heroStyle")
+    HeroImageContent(:title="title", :text="description")
 </template>
 
 <script lang="ts">
@@ -25,5 +25,20 @@ export default class HeroImage extends Vue {
   }
 }
 </script>
-<style scoped>
+<style lang="sass" scoped>
+.hero-image
+  position: relative
+  height: 95vh
+  min-height: 700px
+  background-size: cover
+  &::before
+    position: absolute
+    z-index: 0
+    content: ''
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    opacity: 0.8
+    background: #10732d
 </style>

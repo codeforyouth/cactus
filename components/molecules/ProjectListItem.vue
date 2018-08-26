@@ -1,23 +1,32 @@
 <template lang="pug">
-  div
-    img(:src="image")
-    h3 {{title}}
-    div
-      span タグ:
-      ul
-        li(v-for="tag in tags") {{tag}}
-    div
-      span 募集者: {{auther}}
-    div
-      span 募集締め切り: {{endsOn}}
-    div
-      button もっと見る
+  .project-list-item.col-sm-3
+    .card
+      img.card-img-top(:src="image")
+      .card-body
+        h3.project-list-item-title.card-title {{title}}
+        .card-text
+          div
+            span タグ:
+            ul.tags
+              li.tag(v-for="tag in tags") {{tag}}
+          div
+            span 募集者: {{auther}}
+      .card-footer
+        .project-list-item-fotter
+          span 募集締め切り: {{endsOn}}
+          MoreButton(:size='moreButtonSize')
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
-@Component({})
+import MoreButton from '~/components/atoms/MoreButton.vue'
+@Component({
+  components: {
+    MoreButton,
+  },
+})
 export default class ProjectListItem extends Vue {
+  moreButtonSize: string = 's'
   @Prop(String)
   title!: string
   @Prop(String)
@@ -30,5 +39,15 @@ export default class ProjectListItem extends Vue {
   endsOn!: string
 }
 </script>
-<style scoped>
+<style lang="sass" scoped>
+.project-list-item-title
+  font-size: 1.25rem
+  margin-bottom: 1rem
+.tags
+  list-style: none
+  display: inline-block
+.tag
+  display: inline-block
+  &:not(:last-child):after
+    content: ', '
 </style>

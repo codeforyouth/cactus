@@ -1,7 +1,7 @@
 <template lang="pug">
-  div.about-missions
-    h3 MISSION
-    ul
+  div.about-missions.d-flex.justify-content-center.flex-column
+    h3.text-center MISSION
+    ul.row.about-mission-items
       AboutMissionItem(
         v-for="mission in missions",
         :key="mission.title",
@@ -9,15 +9,18 @@
         :title="mission.title",
         :description="mission.description"
       )
-    button もっと見る
+    .align-self-center
+      MoreButton
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import AboutMissionItem from '~/components/atoms/AboutMissionItem.vue'
+import MoreButton from '~/components/atoms/MoreButton.vue'
 @Component({
   components: {
     AboutMissionItem,
+    MoreButton,
   },
 })
 export default class AboutMissionList extends Vue {
@@ -25,5 +28,7 @@ export default class AboutMissionList extends Vue {
   missions!: Array<object>
 }
 </script>
-<style scoped>
+<style lang="sass" scoped>
+.about-mission-items
+  padding-left: 0
 </style>
