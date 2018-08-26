@@ -1,5 +1,7 @@
 <template lang="pug">
-  section.hero-image.section.d-flex.justify-content-center.flex-column(:style="heroStyle")
+  section.hero-image.section.d-flex.justify-content-center.flex-column(
+    :style="heroBgImage"
+    :class="{'with-text': withText}")
     HeroImageContent(:title="title", :text="description")
 </template>
 
@@ -14,11 +16,14 @@ import HeroImageContent from '~/components/atoms/HeroImageContent.vue'
 export default class HeroImage extends Vue {
   @Prop(String)
   image!: string
-  @Prop(String)
+  @Prop({ default: '' })
   title!: string
-  @Prop(String)
+  @Prop({ default: '' })
   description!: string
-  get heroStyle() {
+  get withText() {
+    return !!(this.title || this.description)
+  }
+  get heroBgImage() {
     return {
       backgroundImage: `url('${this.image}')`,
     }
@@ -31,6 +36,7 @@ export default class HeroImage extends Vue {
   height: 95vh
   min-height: 700px
   background-size: cover
+.with-text
   &::before
     position: absolute
     z-index: 0
