@@ -6,58 +6,33 @@
     ProjectContent(
       :content="project"
     )
-    //- ProjectList(:projects="projects")/
+    ProjectList(:projects="projects")/
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import { State } from 'vuex-class'
+import { State, Getter } from 'vuex-class'
 import HeroImage from '~/components/organisms/HeroImage.vue'
 import ProjectContent from '~/components/organisms/ProjectContent.vue'
-// import ProjectList from '~/components/organisms/ProjectList.vue'
-
+import ProjectList from '~/components/organisms/ProjectList.vue'
 @Component({
   components: {
     HeroImage,
     ProjectContent,
-    // ProjectList,
+    ProjectList,
   },
 })
-export default class extends Vue {
-  project: Object = {
-    id: 1,
-    title:
-      '給食の献立をオンライン化！\n4919プロジェクトを一緒に全国展開するエンジニアの方を探しています',
-    image: '/image/project_sample.jpg',
-    auther: '河中祥吾',
-    tags: ['食', '奈良', 'エンジニア'],
-    endsOn: '6/30',
-    detail: {
-      overview:
-        'この文章はダミーですが、それでも皆さんに感動を与えたいと思い、想いを込めて記入しています。本当は、文字を入れた感じを試すためにやっているというのが目的というのもわかります。でも、それでも、皆さんに感動を与えたいと僕は思っているんです。本当です。本当なんです。絶対に皆さんが感動し、涙を流すまで文章を書き続けることを、僕はここに強く誓います。天は人の上に人を作らず。全ての人は平等だと僕は思い続けて、この文章を書いているのです。心の中の邪念を洗い流すのです。今です。今こそその時です。やりましょう。今です。今だ。',
-      terms:
-        'この文章はダミーですが、それでも皆さんに感動を与えたいと思い、想いを込めて記入しています。本当は、文字を入れた感じを試すためにやっているというのが目的というのもわかります。でも、それでも、皆さんに感動を与えたいと僕は思っているんです。本当です。本当なんです。絶対に皆さんが感動し、涙を流すまで文章を書き続けることを、僕はここに強く誓います。天は人の上に人を作らず。全ての人は平等だと僕は思い続けて、この文章を書いているのです。心の中の邪念を洗い流すのです。今です。今こそその時です。やりましょう。今です。今だ。',
-      issues:
-        'この文章はダミーですが、それでも皆さんに感動を与えたいと思い、想いを込めて記入しています。本当は、文字を入れた感じを試すためにやっているというのが目的というのもわかります。でも、それでも、皆さんに感動を与えたいと僕は思っているんです。本当です。本当なんです。絶対に皆さんが感動し、涙を流すまで文章を書き続けることを、僕はここに強く誓います。天は人の上に人を作らず。全ての人は平等だと僕は思い続けて、この文章を書いているのです。心の中の邪念を洗い流すのです。今です。今こそその時です。やりましょう。今です。今だ。',
-      wishes:
-        'この文章はダミーですが、それでも皆さんに感動を与えたいと思い、想いを込めて記入しています。本当は、文字を入れた感じを試すためにやっているというのが目的というのもわかります。でも、それでも、皆さんに感動を与えたいと僕は思っているんです。本当です。本当なんです。絶対に皆さんが感動し、涙を流すまで文章を書き続けることを、僕はここに強く誓います。天は人の上に人を作らず。全ての人は平等だと僕は思い続けて、この文章を書いているのです。心の中の邪念を洗い流すのです。今です。今こそその時です。やりましょう。今です。今だ。',
-    },
-    requirements: {
-      personality:
-        'この文章はダミーですが、それでも皆さんに感動を与えたいと思い、想いを込めて記入しています。',
-      number: 2,
-      benefits:
-        'この文章はダミーですが、それでも皆さんに感動を与えたいと思い、想いを込めて記入しています。',
-      rewards:
-        'この文章はダミーですが、それでも皆さんに感動を与えたいと思い、想いを込めて記入しています。',
-      duration:
-        'この文章はダミーですが、それでも皆さんに感動を与えたいと思い、想いを込めて記入しています。',
-      procedures:
-        'この文章はダミーですが、それでも皆さんに感動を与えたいと思い、想いを込めて記入しています。',
-    },
+export default class Project extends Vue {
+  @State
+  projects
+  @Getter
+  getProjectById
+  validate({ params }) {
+    return /^\d+$/.test(params.id)
   }
-  // @State
-  // projects
+  get project() {
+    return this.getProjectById(Number(this.$nuxt.$route.params.id))
+  }
 }
 </script>
 <style scoped>
