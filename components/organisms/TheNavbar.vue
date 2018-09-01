@@ -1,7 +1,7 @@
 <template lang="pug">
 nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
-  a.navbar-brand(href="#")
-    NavbarLogo(:title="logoTitle", :image="logoImage", :height="logoHeight")/
+  a.navbar-brand(href="/")
+    NavbarLogo(:title="logoTitle", :image="logoImage", :height="logoHeight")
   button.navbar-toggler(
     type="button"
     data-toggle="collapse"

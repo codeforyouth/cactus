@@ -14,7 +14,10 @@
       .card-footer
         .project-list-item-fotter
           span 募集締め切り: {{endsOn}}
-          MoreButton(:size='moreButtonSize')
+          MoreButton(
+            :size='moreButtonSize'
+            :path='path'
+          )
 </template>
 
 <script lang="ts">
@@ -27,6 +30,8 @@ import MoreButton from '~/components/atoms/MoreButton.vue'
 })
 export default class ProjectListItem extends Vue {
   moreButtonSize: string = 's'
+  @Prop(Number)
+  id!: number
   @Prop(String)
   title!: string
   @Prop(String)
@@ -37,6 +42,9 @@ export default class ProjectListItem extends Vue {
   auther!: string
   @Prop(String)
   endsOn!: string
+  get path() {
+    return `/projects/${this.id}`
+  }
 }
 </script>
 <style lang="sass" scoped>

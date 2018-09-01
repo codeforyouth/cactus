@@ -7,6 +7,7 @@
           ProjectListItem(
             v-for="project in projects",
             :key="project.id",
+            :id="project.id",
             :image="project.image",
             :title="project.title",
             :auther="project.auther",
